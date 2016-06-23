@@ -19,21 +19,21 @@ public class CountWords {
      * @return
      */
     public static int countWords(String originalString) {
-        StringBuilder stringBuilder = new StringBuilder();
         int count = 0;
         if (originalString != null) {
             originalString = originalString.trim();
             if (originalString.length() == 0) {
                 return 0;
             }
+            boolean lastLetterIsSpaceChar = false;
             for (int i = 0; i < originalString.length(); i++) {
                 if (originalString.charAt(i) != ' ') {
-                    stringBuilder.append(originalString.charAt(i));
+                    lastLetterIsSpaceChar = false;
                 } else {
-                    if (stringBuilder.charAt(stringBuilder.length() - 1) == ' ') {
+                    if (lastLetterIsSpaceChar) {
                         continue;
                     } else {
-                        stringBuilder.append(' ');
+                        lastLetterIsSpaceChar = true;
                         count++;
                     }
                 }
