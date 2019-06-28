@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/codeLib.iml" filepath="$PROJECT_DIR$/.idea/codeLib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/excel/excel.iml" filepath="$PROJECT_DIR$/excel/excel.iml" />
     </modules>
   </component>
 </project>

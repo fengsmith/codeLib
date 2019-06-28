@@ -22,11 +22,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="codeLib" />
+        <module name="excel" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
-      <module name="codeLib" target="1.5" />
+      <module name="codeLib" target="1.8" />
+      <module name="excel" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
