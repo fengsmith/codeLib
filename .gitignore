@@ -1,4 +1,8 @@
 # Created by .ignore support plugin (hsz.mobi)
 target/generated-sources/
 .idea/libraries/
-.idea/
+.idea/workspace.xml
+*.iml
+.idea
+excel/src/test/
+excel/target/
