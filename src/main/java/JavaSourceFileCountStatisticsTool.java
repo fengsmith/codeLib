@@ -11,8 +11,8 @@ import java.io.File;
  */
 public class JavaSourceFileCountStatisticsTool {
     public static void main(String[] args) {
-        String path = "C:\\Users\\Administrator\\Desktop\\netty-4.1";
-        System.out.println(recsiveStatisticsLines(new File(path)));
+        String path = "/Users/shifengqiang/projects/javassist/src/main/javassist";
+        System.out.println(recursiveStatisticsFileCount(new File(path)));
     }
 
 
@@ -21,7 +21,7 @@ public class JavaSourceFileCountStatisticsTool {
      * @param file
      * @return
      */
-    public static int recsiveStatisticsLines(File file) {
+    public static int recursiveStatisticsFileCount(File file) {
         if (file.isFile()) {
             // 判断是否是 java 类但不包括测试类
             if (isJavaFile(file) && !isJavaTestFile(file)) {
@@ -32,7 +32,7 @@ public class JavaSourceFileCountStatisticsTool {
         }
         int sum = 0;
         for (File temp : file.listFiles()) {
-            sum += recsiveStatisticsLines(temp);
+            sum += recursiveStatisticsFileCount(temp);
         }
         return sum;
     }

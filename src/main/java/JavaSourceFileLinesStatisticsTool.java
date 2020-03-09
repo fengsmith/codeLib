@@ -14,7 +14,7 @@ import java.io.IOException;
  */
 public class JavaSourceFileLinesStatisticsTool {
     public static void main(String[] args) {
-        String path = "C:\\Users\\Administrator\\Desktop\\netty-4.1";
+        String path = "/Users/shifengqiang/projects/javassist/src/main/javassist";
         System.out.println(recsiveStatisticsLines(new File(path)));
     }
 
