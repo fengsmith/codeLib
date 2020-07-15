@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    table.reference, table.tecspec {
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 4px;
+        margin-top: 4px;
+    }
+
+    table.reference tr:nth-child(odd) {
+        background-color: #f6f4f0;
+    }
+
+    table.reference th {
+        color: #fff;
+        background-color: #555;
+        border: 1px solid #555;
+        font-size: 12px;
+        padding: 3px;
+        vertical-align: top;
+        text-align: left;
+    }
+
+    table.reference tr:nth-child(even) {
+        background-color: #fff;
+    }
+
+    table.reference td {
+        line-height: 2em;
+        min-width: 24px;
+        border: 1px solid #d4d4d4;
+        padding: 5px;
+        padding-top: 7px;
+        padding-bottom: 7px;
+        vertical-align: top;
+    }
+</style>
+
+<body>
+<script>
+    function replaceAll(str, find, replace) {
+        return str.replace(new RegExp(find, 'g'), replace);
+    }
+
+    function filter(contents) {
+        contents = replaceAll(contents, "，", ",");
+        contents = replaceAll(contents, " ", "");
+        if (contents[0] == ',') {
+            contents = contents.substring(1);
+        }
+        if (contents[contents.length - 1] == ',') {
+            contents = contents.substring(0, contents.length - 1);
+        }
+        return contents;
+    }
+
+    function generate() {
+        var contents = document.getElementById("inputContent").value;
+        console.log("##" + contents + "###");
+        if (contents == null || contents == '') {
+            alert("请输入学号");
+            return;
+        }
+
+        var a = parseInput();
+        var outputArray = [];
+        while (true) {
+            var r = Math.floor(Math.random() * (a.length));
+            var find = false;
+            for (let v of outputArray) {
+                if (v == r) {
+                    find = true;
+                    break;
+                }
+            }
+            if (!find) {
+                outputArray.push(r);
+            }
+            if (outputArray.length == a.length) {
+                break;
+            }
+        }
+
+        var tableBody = document.getElementById("t_body");
+        var rows = document.getElementById("outputContent").rows.length;
+
+        while (rows > 1) {
+            tableBody.removeChild(tableBody.lastChild);
+            rows--;
+        }
+        for (let i = 0; i < outputArray.length; i++) {
+            addRow("outputContent", i + 1, a[outputArray[i]]);
+        }
+        document.getElementById("outputContent").hidden = false;
+    }
+
+    function parseInput() {
+        var contents = document.getElementById("inputContent").value;
+        console.log("##" + contents + "###");
+        if (contents == null || contents == '') {
+            return [];
+        }
+        while (true) {
+            var originalLength = contents.length;
+            contents = filter(contents);
+            var newLength = contents.length;
+            if (originalLength == newLength) {
+                break;
+            }
+        }
+        console.log(contents);
+        var a = contents.split("\n");
+        console.log(a);
+
+        return a;
+
+    }
+
+    function textAreaChanged() {
+        var a = parseInput();
+        console.log("aaaa");
+        console.log(a);
+        displayOriginal(a);
+    }
+
+    function displayOriginal(a) {
+        var tableBody = document.getElementById("originalContent_t_body");
+        var rows = document.getElementById("originalContent").rows.length;
+
+        while (rows > 1) {
+            tableBody.removeChild(tableBody.lastChild);
+            rows--;
+        }
+        for (let i = 0; i < a.length; i++) {
+            addRow("originalContent", i + 1, a[i]);
+        }
+        document.getElementById("originalContent").hidden = false;
+
+    }
+
+    function addRow(id, v1, v2) {
+        let tableRef = document.getElementById(id);
+
+        let newRow = tableRef.insertRow(-1);
+        let cell0 = newRow.insertCell(0);
+        let cell1 = newRow.insertCell(1);
+
+        // Append a text node to the cell
+        let text0 = document.createTextNode(v1);
+        let text1 = document.createTextNode(v2);
+        cell0.appendChild(text0);
+        cell1.appendChild(text1);
+    }
+
+    function paste(e) {
+        var data = e.originalEvent.clipboardData.getData('Text');
+        console.log(data);
+
+    }
+
+</script>
+
+<p align="left">
+    欢迎xxx
+</p>
+<p>
+    请输入学号，用逗号分隔
+    <textarea id="inputContent" rows="20" cols="20" onchange="textAreaChanged();"></textarea>
+</p>
+<button type="button" onclick="generate();">生成随机序列</button>
+<p>
+    输入结果
+</p>
+
+<table class="reference" hidden id="originalContent">
+    <tbody id="originalContent_t_body">
+    <tr>
+        <th>输入序号</th>
+        <th>学号</th>
+    </tr>
+    </tbody>
+</table>
+
+<p>
+    输出结果
+</p>
+
+<table class="reference" hidden id="outputContent">
+    <tbody id="t_body">
+    <tr>
+        <th>输出序号</th>
+        <th>学号</th>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

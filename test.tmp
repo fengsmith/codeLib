@@ -1,25 +1,117 @@
-stack=2, locals=4, args_size=1
-         0: sipush        1000
-         3: istore_1
-         4: sipush        1000
-         7: invokestatic  #2                  // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
-        10: astore_2
-        11: iload_1
-        12: aload_2
-        13: invokevirtual #3                  // Method java/lang/Integer.intValue:()I
-        16: if_icmpne     23
-        19: iconst_1
-        20: goto          24
-        23: iconst_0
-        24: istore_3
-        25: return
+Classfile /Users/shifengqiang/projects/codeLib/src/main/java/DetermineOS.class
+  Last modified 2020-4-27; size 808 bytes
+  MD5 checksum ac66e3aaaf3b4aaa507b4d06c28fb330
+  Compiled from "DetermineOS.java"
+public class DetermineOS
+  minor version: 0
+  major version: 52
+  flags: ACC_PUBLIC, ACC_SUPER
+Constant pool:
+   #1 = Methodref          #14.#25        // java/lang/Object."<init>":()V
+   #2 = String             #26            // os.name
+   #3 = Methodref          #27.#28        // java/lang/System.getProperty:(Ljava/lang/String;)Ljava/lang/String;
+   #4 = Fieldref           #27.#29        // java/lang/System.out:Ljava/io/PrintStream;
+   #5 = String             #30            // Display the current OS name example.. OS is
+   #6 = Methodref          #31.#32        // java/io/PrintStream.print:(Ljava/lang/String;)V
+   #7 = Methodref          #33.#34        // java/lang/String.toLowerCase:()Ljava/lang/String;
+   #8 = String             #35            // linux
+   #9 = Methodref          #33.#36        // java/lang/String.contains:(Ljava/lang/CharSequence;)Z
+  #10 = String             #37            // Linux
+  #11 = Methodref          #31.#38        // java/io/PrintStream.println:(Ljava/lang/String;)V
+  #12 = String             #39            // not Linux
+  #13 = Class              #40            // DetermineOS
+  #14 = Class              #41            // java/lang/Object
+  #15 = Utf8               <init>
+  #16 = Utf8               ()V
+  #17 = Utf8               Code
+  #18 = Utf8               LineNumberTable
+  #19 = Utf8               main
+  #20 = Utf8               ([Ljava/lang/String;)V
+  #21 = Utf8               StackMapTable
+  #22 = Class              #42            // java/lang/String
+  #23 = Utf8               SourceFile
+  #24 = Utf8               DetermineOS.java
+  #25 = NameAndType        #15:#16        // "<init>":()V
+  #26 = Utf8               os.name
+  #27 = Class              #43            // java/lang/System
+  #28 = NameAndType        #44:#45        // getProperty:(Ljava/lang/String;)Ljava/lang/String;
+  #29 = NameAndType        #46:#47        // out:Ljava/io/PrintStream;
+  #30 = Utf8               Display the current OS name example.. OS is
+  #31 = Class              #48            // java/io/PrintStream
+  #32 = NameAndType        #49:#50        // print:(Ljava/lang/String;)V
+  #33 = Class              #42            // java/lang/String
+  #34 = NameAndType        #51:#52        // toLowerCase:()Ljava/lang/String;
+  #35 = Utf8               linux
+  #36 = NameAndType        #53:#54        // contains:(Ljava/lang/CharSequence;)Z
+  #37 = Utf8               Linux
+  #38 = NameAndType        #55:#50        // println:(Ljava/lang/String;)V
+  #39 = Utf8               not Linux
+  #40 = Utf8               DetermineOS
+  #41 = Utf8               java/lang/Object
+  #42 = Utf8               java/lang/String
+  #43 = Utf8               java/lang/System
+  #44 = Utf8               getProperty
+  #45 = Utf8               (Ljava/lang/String;)Ljava/lang/String;
+  #46 = Utf8               out
+  #47 = Utf8               Ljava/io/PrintStream;
+  #48 = Utf8               java/io/PrintStream
+  #49 = Utf8               print
+  #50 = Utf8               (Ljava/lang/String;)V
+  #51 = Utf8               toLowerCase
+  #52 = Utf8               ()Ljava/lang/String;
+  #53 = Utf8               contains
+  #54 = Utf8               (Ljava/lang/CharSequence;)Z
+  #55 = Utf8               println
+{
+  public DetermineOS();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 1: 0
 
-
-
-stack=1, locals=3, args_size=1
-         0: sipush        1000
-         3: istore_1
-         4: sipush        1000
-         7: invokestatic  #2                  // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
-        10: astore_2
-        11: return
+  public static void main(java.lang.String[]);
+    descriptor: ([Ljava/lang/String;)V
+    flags: ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=2, locals=2, args_size=1
+         0: ldc           #2                  // String os.name
+         2: invokestatic  #3                  // Method java/lang/System.getProperty:(Ljava/lang/String;)Ljava/lang/String;
+         5: astore_1
+         6: getstatic     #4                  // Field java/lang/System.out:Ljava/io/PrintStream;
+         9: ldc           #5                  // String Display the current OS name example.. OS is
+        11: invokevirtual #6                  // Method java/io/PrintStream.print:(Ljava/lang/String;)V
+        14: aload_1
+        15: ifnull        49
+        18: aload_1
+        19: invokevirtual #7                  // Method java/lang/String.toLowerCase:()Ljava/lang/String;
+        22: ldc           #8                  // String linux
+        24: invokevirtual #9                  // Method java/lang/String.contains:(Ljava/lang/CharSequence;)Z
+        27: ifeq          41
+        30: getstatic     #4                  // Field java/lang/System.out:Ljava/io/PrintStream;
+        33: ldc           #10                 // String Linux
+        35: invokevirtual #11                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+        38: goto          49
+        41: getstatic     #4                  // Field java/lang/System.out:Ljava/io/PrintStream;
+        44: ldc           #12                 // String not Linux
+        46: invokevirtual #6                  // Method java/io/PrintStream.print:(Ljava/lang/String;)V
+        49: return
+      LineNumberTable:
+        line 4: 0
+        line 6: 6
+        line 7: 14
+        line 9: 18
+        line 10: 30
+        line 12: 41
+        line 14: 49
+      StackMapTable: number_of_entries = 2
+        frame_type = 252 /* append */
+          offset_delta = 41
+          locals = [ class java/lang/String ]
+        frame_type = 7 /* same */
+}
+SourceFile: "DetermineOS.java"
