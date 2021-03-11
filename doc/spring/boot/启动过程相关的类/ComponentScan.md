@@ -1,0 +1,2 @@
+org.springframework.context.annotation.ComponentScanAnnotationParser 123L 132
+
