@@ -23,6 +23,7 @@
     <modules>
         <module>excel</module>
         <module>javaassisttest</module>
+        <module>my-lucene</module>
     </modules>
 
     <dependencies>

@@ -11,7 +11,7 @@ import java.io.File;
  */
 public class JavaSourceFileCountStatisticsTool {
     public static void main(String[] args) {
-        String path = "/Users/shifengqiang/projects/h2database";
+        String path = "/Users/shifengqiang/projects/lucene";
         System.out.println(recursiveStatisticsFileCount(new File(path)));
     }
 
