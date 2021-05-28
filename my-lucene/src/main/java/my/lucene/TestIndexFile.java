@@ -33,6 +33,8 @@ import java.util.Date;
  */
 public class TestIndexFile {
     public static void main(String[] args) {
+        System.out.println(System.currentTimeMillis());
+
         String[] strings = new String[2];
         strings[0] = "-docs";
         strings[1] = "/Users/shifengqiang/Downloads/lucene-8.8.1";
